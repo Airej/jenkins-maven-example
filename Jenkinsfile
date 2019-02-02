@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'maven:3-alpine'
-      args '-v /root/.m2:/root/.m2'
+      args '-v /jenkins/.m2:/jenkins/.m2'
     }
 
   }
@@ -19,6 +19,6 @@ pipeline {
     }
   }
   environment {
-    MAVEN_OPTS = '-Duser.home=/root'
+    MAVEN_OPTS = '-Duser.home=/jenkins'
   }
 }
