@@ -10,6 +10,8 @@ pipeline {
     stage('Build') {
       steps {
         sh 'cd /'
+        sh 'ls -la'
+        sh 'whoami'
         sh 'mvn help:evaluate -Dexpression=settings.localRepository'
         sh 'mvn -B -DskipTests clean package'
       }
