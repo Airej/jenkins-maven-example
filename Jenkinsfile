@@ -9,6 +9,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'cd /'
+        sh 'mvn help:evaluate -Dexpression=settings.localRepository'
         sh 'mvn -B -DskipTests clean package'
       }
     }
