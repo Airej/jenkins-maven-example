@@ -21,6 +21,7 @@ pipeline {
     stage('Static Tests') {
       steps {
         sh 'mvn site'
+        recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'target/checkstyle.xml'), sourceCodeEncoding: 'UTF-8'
       }
     }
   }
