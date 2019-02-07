@@ -18,6 +18,11 @@ pipeline {
         junit 'target/surefire-reports/*.xml'
       }
     }
+    stage('Static Tests') {
+      steps {
+        sh 'mvn site'
+      }
+    }
   }
   environment {
     MAVEN_OPTS = '-Duser.home=/jenkins'
