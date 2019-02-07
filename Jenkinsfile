@@ -21,15 +21,6 @@ pipeline {
     stage('Static Tests') {
       steps {
         sh 'mvn site'
-        publishHTML(target: [
-          allowMissing: false,
-          alwaysLinkToLastBuild: false,
-          keepAll: true,
-          reportDir: 'target/site',
-          reportFiles: 'checkstyle.html',
-          reportTitles: "Checkstyle",
-          reportName: "CheckStyle Report"
-        ])
       }
     }
   }
