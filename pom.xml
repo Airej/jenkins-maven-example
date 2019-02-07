@@ -45,7 +45,7 @@
 </dependencies>
 
 
-<!-- All these plugins are executed when running mvn site -->
+<!-- All these plugins are executed when running mvn site and mvn pmd:pmd and mvn pmd:cpd -->
 <reporting>
     <plugins>
         <!-- To generate reports-->
