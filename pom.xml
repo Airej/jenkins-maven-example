@@ -44,23 +44,29 @@
     </dependency>
 </dependencies>
 
+
+<!-- All these plugins are executed when running mvn site -->
 <reporting>
     <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>3.0.0</version>
-        </plugin>
+        <!-- To generate reports-->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-project-info-reports-plugin</artifactId>
             <version>2.9</version>
         </plugin>
+        <!-- To check the style of the code -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.0.0</version>
+        </plugin>
+        <!-- To spot some bugs -->
         <plugin>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-maven-plugin</artifactId>
             <version>3.1.9</version>
         </plugin>
+        <!-- To test coverage -->
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>cobertura-maven-plugin</artifactId>

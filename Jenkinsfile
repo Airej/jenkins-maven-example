@@ -20,15 +20,15 @@ pipeline {
     }
     stage('Static Tests') {
       steps {
-        sh 'mvn site'
-        sh 'mvn pmd:cpd'
-        sh 'mvn pmd:pmd'
+        // Run all the static tests (style, CPD (=copy-paste detector), PMD (=Programming Mistake Detector) and spotBugs, coverage)
         sh 'mvn compile site'
+        // Send the results to Jenkins
         recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'target/checkstyle-result.xml'), sourceCodeEncoding: 'UTF-8'
         recordIssues enabledForFailure: true, tool: cpd(pattern: 'target/cpd.xml'), sourceCodeEncoding: 'UTF-8'
         recordIssues enabledForFailure: true, tool: pmdParser(pattern: 'target/pmd.xml'), sourceCodeEncoding: 'UTF-8'
         recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'target/spotbugsXml.xml'), sourceCodeEncoding: 'UTF-8'
       }
+      // Send Coverage results
       post{
         always{
           step([$class: 'CoberturaPublisher',
