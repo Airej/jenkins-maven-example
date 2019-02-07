@@ -22,8 +22,8 @@ pipeline {
       steps {
         // Run all the static tests (style, CPD (=copy-paste detector), PMD (=Programming Mistake Detector) and spotBugs, coverage)
         sh 'mvn compile site'
-        sh 'pmd:pmd'
-        sh 'pmd:cpd'
+        sh 'mvn pmd:pmd'
+        sh 'mvn pmd:cpd'
         // Send the results to Jenkins
         recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'target/checkstyle-result.xml'), sourceCodeEncoding: 'UTF-8'
         recordIssues enabledForFailure: true, tool: cpd(pattern: 'target/cpd.xml'), sourceCodeEncoding: 'UTF-8'
