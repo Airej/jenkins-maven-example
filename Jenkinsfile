@@ -57,7 +57,7 @@ pipeline {
     agent {
       docker {
           image 'maven:3-alpine'
-          arg '-v /jenkins/.m2:/jenkins/.m2'
+          args '-v /jenkins/.m2:/jenkins/.m2'
       } 
     }
     stages {
