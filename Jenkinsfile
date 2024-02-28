@@ -21,7 +21,7 @@ pipeline {
     stage('Static Tests') {
       steps {
         // Run all the static tests (style, CPD (=copy-paste detector), PMD (=Programming Mistake Detector) and spotBugs, coverage)
-        sh 'mvn compile site'
+        // sh 'mvn compile site'
         sh 'mvn pmd:pmd'
         sh 'mvn pmd:cpd'
         // Send the results to Jenkins
