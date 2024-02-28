@@ -24,21 +24,6 @@ pipeline {
         sh 'mvn pmd:cpd'
         // Send Coverage results
       }
-      post{
-        always{
-          step([$class: 'CoberturaPublisher',
-                         autoUpdateHealth: false,
-                         autoUpdateStability: false,
-                         coberturaReportFile: 'target/site/cobertura/coverage.xml',
-                         failNoReports: false,
-                         failUnhealthy: false,
-                         failUnstable: false,
-                         maxNumberOfBuilds: 10,
-                         onlyStable: false,
-                         sourceEncoding: 'ASCII',
-                         zoomCoverageChart: false])
-        }
-      }
     }
   }
   environment {
