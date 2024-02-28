@@ -4,7 +4,6 @@ pipeline {
       image 'maven:3-alpine'
       args '-u root -v /jenkins/.m2:/jenkins/.m2'
     }
-
   }
   stages {
     stage('Build') {
@@ -23,8 +22,8 @@ pipeline {
         // Run all the static tests (style, CPD (=copy-paste detector), PMD (=Programming Mistake Detector) and spotBugs, coverage)
         sh 'mvn pmd:pmd'
         sh 'mvn pmd:cpd'
-        }
-      Send Coverage results
+        // Send Coverage results
+      }
       post{
         always{
           step([$class: 'CoberturaPublisher',
@@ -46,6 +45,7 @@ pipeline {
     MAVEN_OPTS = '-Duser.home=/jenkins'
   }
 }
+
 
 // pipeline {
 //     agent {
