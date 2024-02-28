@@ -31,21 +31,21 @@ pipeline {
         recordIssues enabledForFailure: true, tool: spotBugs(pattern: 'target/spotbugsXml.xml'), sourceCodeEncoding: 'UTF-8'
       }
       // Send Coverage results
-      post{
-        always{
-          step([$class: 'CoberturaPublisher',
-                         autoUpdateHealth: false,
-                         autoUpdateStability: false,
-                         coberturaReportFile: 'target/site/cobertura/coverage.xml',
-                         failNoReports: false,
-                         failUnhealthy: false,
-                         failUnstable: false,
-                         maxNumberOfBuilds: 10,
-                         onlyStable: false,
-                         sourceEncoding: 'ASCII',
-                         zoomCoverageChart: false])
-        }
-      }
+      // post{
+      //   always{
+      //     step([$class: 'CoberturaPublisher',
+      //                    autoUpdateHealth: false,
+      //                    autoUpdateStability: false,
+      //                    coberturaReportFile: 'target/site/cobertura/coverage.xml',
+      //                    failNoReports: false,
+      //                    failUnhealthy: false,
+      //                    failUnstable: false,
+      //                    maxNumberOfBuilds: 10,
+      //                    onlyStable: false,
+      //                    sourceEncoding: 'ASCII',
+      //                    zoomCoverageChart: false])
+      //   }
+      // }
     }
   }
   environment {
