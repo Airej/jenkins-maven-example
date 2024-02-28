@@ -16,22 +16,11 @@
 
  <build>
     <plugins>        
+        <!-- Surefire Plugin -->
         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.2.5</version>
-            <dependencies>
-                <!-- Updated versions of JUnit dependencies -->
-                <dependency>
-                    <groupId>org.junit.platform</groupId>
-                    <artifactId>junit-platform-surefire-provider</artifactId>
-                    <version>1.3.2</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.junit.jupiter</groupId>
-                    <artifactId>junit-jupiter-engine</artifactId>
-                    <version>5.7.2</version>
-                </dependency>
-            </dependencies>
         </plugin>
     </plugins>
 </build>
