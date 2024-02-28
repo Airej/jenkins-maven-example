@@ -18,17 +18,18 @@
     <plugins>        
         <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.19</version>
+            <version>3.2.5</version>
             <dependencies>
+                <!-- Updated versions of JUnit dependencies -->
                 <dependency>
                     <groupId>org.junit.platform</groupId>
                     <artifactId>junit-platform-surefire-provider</artifactId>
-                    <version>1.0.0-M4</version>
+                    <version>1.7.2</version>
                 </dependency>
                 <dependency>
                     <groupId>org.junit.jupiter</groupId>
                     <artifactId>junit-jupiter-engine</artifactId>
-                    <version>5.0.0-M4</version>
+                    <version>5.7.2</version>
                 </dependency>
             </dependencies>
         </plugin>
@@ -39,11 +40,10 @@
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.0.0-M4</version>
+        <version>5.7.2</version> <!-- Updated JUnit version -->
         <scope>test</scope>
     </dependency>
 </dependencies>
-
 
 <!-- All these plugins are executed when running mvn site and mvn pmd:pmd and mvn pmd:cpd -->
 <reporting>
@@ -52,25 +52,25 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-project-info-reports-plugin</artifactId>
-            <version>2.9</version>
+            <version>3.1.1</version> <!-- Updated version -->
         </plugin>
         <!-- To check the style of the code -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.2</version> <!-- Updated version -->
         </plugin>
         <!-- To spot some bugs -->
         <plugin>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-maven-plugin</artifactId>
-            <version>3.1.9</version>
+            <version>4.4.2</version> <!-- Updated version -->
         </plugin>
         <!-- To test coverage -->
         <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>cobertura-maven-plugin</artifactId>
-            <version>2.7</version>
+            <version>2.8.0</version> <!-- Updated version -->
             <configuration>
                 <formats>
                     <format>html</format>
